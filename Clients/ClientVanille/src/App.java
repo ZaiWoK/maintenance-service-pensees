@@ -1,7 +1,5 @@
-import java.util.Iterator;
-import java.util.List;
 
-import accesseur.PenseeDAO;
+import accesseur.cache.PenseeDAO;
 import modele.Pensee;
 import outils.Journal;
 import vue.VueInspirationVisuelle;
@@ -10,6 +8,7 @@ public class App {
 
 	public static void main(String[] parametres) {
 
+		
 		//Journal.activer();
 		Journal.activerNiveau(0);
 		
@@ -18,6 +17,9 @@ public class App {
 		
 		VueInspirationVisuelle.launch(VueInspirationVisuelle.class, parametres);
 		
+		PenseeDAO cachePenseeDAO = new PenseeDAO();
+		//cachePenseeDAO.listerPensees();
+		cachePenseeDAO.enregistrerPensee(new Pensee("coucou","coucou"));
 		
 	}
 
